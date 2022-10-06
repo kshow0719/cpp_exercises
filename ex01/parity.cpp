@@ -1,10 +1,15 @@
 #include <stdio.h>
-#include <bitset>
+
+int parity(long);
 
 int main(void){
-    unsigned long x;
+    unsigned long x[4] = {3, 10, 28, 106};
+    int result;
 
-    std::cout << parity(2) << std::endl;
+    for(int i = 0; i < 4; i++){
+        result = parity(x[i]);
+        printf("%d (x = %ld)\n", result, x[i]);
+    }
 }
 
 int parity(long x){
@@ -21,5 +26,10 @@ int parity(long x){
     }
     sum++;
 
-    return sum;
+    if(sum % 2 == 1){
+        return 0;
+    }
+    else{
+        return 1;
+    }
 }

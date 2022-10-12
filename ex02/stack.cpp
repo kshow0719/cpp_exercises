@@ -3,9 +3,6 @@
 #include <iostream>
 #include "stack.h"
 
-Stack::Stack() :{
-}
-
 // Check whether the stack is empty 
 bool Stack::empty(){
     if (_top == -1){

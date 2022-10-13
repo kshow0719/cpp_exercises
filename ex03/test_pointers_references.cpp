@@ -56,8 +56,8 @@ int main(void){
   // 14. Allocate memory for a 2d array of size m * n on the heap (i.e. m arrays of size n).  
   // Make dd points to this 2d array.
   dd = new double*[m];
-  for(int i = 0; i < n; ++i){
-    dd[i] = new double[m];
+  for(int i = 0; i < m; ++i){
+    dd[i] = new double[n];
   }
   // 15. Set the element dd[i][j] to be equal to double(i)*double(j)
   for (int i = 0; i < m; i++){
@@ -72,9 +72,11 @@ int main(void){
   delete[] dd;
 
   // 17. Create a reference to the variable f (1. above). Name it rf
-  
+  float* rf = f;
   // 18. Assign the value 2.71828 to rf 
+  *rf = 2.71828;
   // 19. Print out the value of f and rf and verify that they are equal
+  std::cout << "rf =" << *rf << ", f = "<< *f << "." << std::endl;
 
   return 0;
 }

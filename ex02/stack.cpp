@@ -25,7 +25,7 @@ bool Stack::full(){
 
 // Return the number of elements in the stack
 int Stack::size(){
-    return _top;
+    return _top + 1;
 }
 
 // Insert element on top

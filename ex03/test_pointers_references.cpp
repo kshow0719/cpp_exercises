@@ -13,7 +13,7 @@ int main(void){
   // 3. Make f points to pi
   f = &pi;
   // 4. Print out the content of the memory location pointed to by f
-  std::cout << "The memory location is " << f << "." << std::endl;
+  std::cout << "The content of the memory location is " << *f << "." << std::endl;
 
   //
   short a[] = {5, 4, 3, 2, 1};
@@ -72,11 +72,11 @@ int main(void){
   delete[] dd;
 
   // 17. Create a reference to the variable f (1. above). Name it rf
-  float* rf = f;
+  float& rf = *f;
   // 18. Assign the value 2.71828 to rf 
-  *rf = 2.71828;
+  rf = 2.71828;
   // 19. Print out the value of f and rf and verify that they are equal
-  std::cout << "rf =" << *rf << ", f = "<< *f << "." << std::endl;
+  std::cout << "rf =" << rf << ", f = "<< *f << "." << std::endl;
 
   return 0;
 }

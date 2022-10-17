@@ -4,7 +4,7 @@
 #include "stack.h"
 
 // Check whether the stack is empty 
-bool Stack::empty(){
+bool Stack::empty() const{
     if (_top == -1){
         return true;
     }
@@ -14,7 +14,7 @@ bool Stack::empty(){
 }
 
 // Check whether the stack is full
-bool Stack::full(){
+bool Stack::full() const{
     if (_top == _max_size - 1){
         return true;
     }
@@ -24,13 +24,13 @@ bool Stack::full(){
 }
 
 // Return the number of elements in the stack
-int Stack::size(){
+int Stack::size() const{
     return _top + 1;
 }
 
 // Insert element on top
 // print an error message on std::cerr when overflow
-void Stack::push(Point xy){
+void Stack::push(const Point xy){
     if (full()){
         std::cerr << "Error: The stack is full."<< std::endl;
     }
@@ -51,6 +51,6 @@ void Stack::pop(){
 }
 
 // Acces the topmost element
-Point Stack::top(){
+Point Stack::top() const{
     return _data[_top];
 }

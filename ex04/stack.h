@@ -12,7 +12,7 @@ struct Point {
 // Class for representing a stack 
 class Stack {
 public:
-Stack(int max_size=100) : _max_size(max_size), 
+Stack(const int max_size=100) : _max_size(max_size), 
     _top(-1), _data(new Point[max_size]) {}
 
     ~Stack() { delete[] _data; }
@@ -21,20 +21,20 @@ Stack(int max_size=100) : _max_size(max_size),
 
  // Check whether the stack is empty 
  // (the implementation will go in stack.cpp)
-bool empty();
+bool empty() const;
 
  // Check whether the stack is full
  // (the implementation will go in stack.cpp)
-bool full();
+bool full() const;
 
  // Return the number of elements in the stack 
  // (the implementation will go in stack.cpp)
-int size();
+int size() const;
 
  // Insert element on top
  // print an error message on std::cerr when overflow
  // (the implementation will go in stack.cpp)
-void push(Point);
+void push(const Point);
 
  // Remove element on top
  // print an error message on std::cerr when underflow
@@ -43,10 +43,10 @@ void pop();
 
  // Acces the topmost element
  // (the implementation will go in stack.cpp)
-Point top();
+Point top() const;
 
 private:
-  int _max_size; // capacity of the fixed-size stack 
+  const int _max_size; // capacity of the fixed-size stack 
   int _top; // index to the top of the stack 
   Point* _data; // data container 
 

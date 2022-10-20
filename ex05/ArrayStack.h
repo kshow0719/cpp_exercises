@@ -29,12 +29,20 @@ private:
 public:
     // Constructors:
     // Default constructor 
-    ArrayStack() 
+    ArrayStack(){
+        this->_num_items = 0;
+        this->_allocated_size = 0;
+        this->_items = NULL;
+    }
     /* COMPLETE ... initialize _num_items to 0, _allocated_size to 0, and
      * set _items to the null pointer, 
      */
 
-    explicit ArrayStack(int allocated_size) 
+    explicit ArrayStack(int _allocated_size){
+        this->_num_items = 0;
+        std::string* AS = new std::string[_allocated_size];
+        this->_items = AS;
+    }
     /* COMPLETE ... initialize _num_items to 0, 
      * pre-allocate memory for an array of size allocated_size
      * and make _items point to it */
@@ -42,6 +50,7 @@ public:
     // Destructor:
     ~ArrayStack() {
         // COMPLETE
+        delete[] this->_items;
     }
 
     // Push item to the stack 

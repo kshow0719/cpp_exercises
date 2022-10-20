@@ -38,6 +38,13 @@ public:
      * set _items to the null pointer, 
      */
 
+    // Q2 コピーコンストラクタ
+    ArrayStack(const ArrayStack& array){
+        this->_num_items = array._num_items;
+        this->_allocated_size = array._allocated_size;
+        this->_items = array._items;
+    }
+
     explicit ArrayStack(int _allocated_size){
         this->_num_items = 0;
         std::string* AS = new std::string[_allocated_size];

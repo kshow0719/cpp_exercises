@@ -83,6 +83,7 @@ public:
 
     explicit ArrayStack(int _allocated_size){
         this->_num_items = 0;
+        this->_allocated_size = _allocated_size;
         std::string* AS = new std::string[_allocated_size];
         this->_items = AS;
     }

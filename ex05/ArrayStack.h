@@ -2,6 +2,7 @@
 
 #include <string>
 #include <iostream>
+using namespace std;
 
 #ifndef ARRAY_STACK_H
 #define ARRAY_STACK_H
@@ -43,7 +44,10 @@ public:
     ArrayStack(const ArrayStack& array){
         this->_num_items = array._num_items;
         this->_allocated_size = array._allocated_size;
-        this->_items = array._items;
+        this->_items = new string[array._allocated_size];
+        for (int i = 0; i < array._allocated_size; i++){
+            this->_items[i] = array._items[i];
+        }
     }
 
     // Q2 コピーの代入演算子
@@ -52,7 +56,10 @@ public:
         if (this != &array){
             this->_num_items = array._num_items;
             this->_allocated_size = array._allocated_size;
-            this->_items = array._items;
+            this->_items = new string[array._allocated_size];
+            for (int i = 0; i < array._allocated_size; i++){
+                this->_items[i] = array._items[i];
+            }
         }
         return *this;
     }

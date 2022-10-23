@@ -38,11 +38,47 @@ public:
      * set _items to the null pointer, 
      */
 
+    // ************************** Q2 **************************
     // Q2 コピーコンストラクタ
     ArrayStack(const ArrayStack& array){
         this->_num_items = array._num_items;
         this->_allocated_size = array._allocated_size;
         this->_items = array._items;
+    }
+
+    // Q2 コピーの代入演算子
+    ArrayStack& operator=(const ArrayStack& array){
+        // 自身の代入チェック
+        if (this != &array){
+            this->_num_items = array._num_items;
+            this->_allocated_size = array._allocated_size;
+            this->_items = array._items;
+        }
+        return *this;
+    }
+
+    // ************************** Q3 **************************
+    // Q3 移動コンストラクタ
+    ArrayStack(ArrayStack&& array){
+        // 要素の移動
+        this->_num_items = array._num_items;
+        this->_allocated_size = array._allocated_size;
+        this->_items = array._items;
+        // 参照を断ち切る
+        array._num_items = 0;
+        array._allocated_size = 0;
+        array._items = 0;
+    }
+
+    // Q3 移動の代入演算子
+    ArrayStack& operator=(const ArrayStack&& array){
+        // 自身の代入チェック
+        if (this != &array){
+            this->_num_items = array._num_items;
+            this->_allocated_size = array._allocated_size;
+            this->_items = array._items;
+        }
+        return *this;
     }
 
     explicit ArrayStack(int _allocated_size){

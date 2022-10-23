@@ -51,17 +51,31 @@ int main(void) {
     // COMPLETE 
     // Verify that the content of the stacks 'stack1' and 'stack3', 'stack2' and 'stack4'
     // and 'stack1' and 'stack5' are identical.
-    // stack1とstack3のトップを確認
+    // stack1とstack3のトップを確認、同じ内容になるはず
     cout << "Stack1: " << stack1.top() << ", Stack3: " << stack3.top() << endl;
-    // stack2とstack4のトップを確認
+    // stack2とstack4のトップを確認、同じ内容になるはず
     cout << "Stack2: " << stack2.top() << ", Stack4: " << stack4.top() << endl;
-    // stack1とstack5のトップを確認
+    // stack1とstack5のトップを確認、同じ内容になるはず
     cout << "Stack1: " << stack1.top() << ", Stack5: " << stack5.top() << endl;
     
     // Push several items in 'stack6'.
+    for(int i = 0; i < 5; i++){
+        stack6.push(test[i]);
+    }
 
     // ******************************* Q3 *****************************************
     cout << "------------ Q3 ------------" << endl;
+    // Move
+    ArrayStack stack7 = std::move(stack5);
 
-return 0;
+    stack6 = std::move(stack2);
+
+    // COMPLETE 
+    // Write tests to check your implementation of the move semantic. 
+    // stack7のトップを確認、Q2におけるstack5と同じ内容になるはず
+    cout << "Stack7: " << stack7.top() << endl;
+    // stack6のトップを確認、Q2におけるstack2と同じ内容になるはず
+    cout << "Stack6: " << stack6.top() << endl;
+
+    return 0;
 }

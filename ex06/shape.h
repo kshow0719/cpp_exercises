@@ -5,7 +5,7 @@ using namespace std;
 #ifndef SHAPE_H
 #define SHAPE_H
 
-struct Shape{
+class Shape{
 public:
     virtual string get_name() = 0;
     virtual float compute_area() = 0;

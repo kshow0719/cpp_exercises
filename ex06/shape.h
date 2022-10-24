@@ -5,6 +5,11 @@ using namespace std;
 #ifndef SHAPE_H
 #define SHAPE_H
 
+struct Point {
+    float x; 
+    float y; 
+};
+
 class Shape{
 public:
     virtual string get_name() = 0;

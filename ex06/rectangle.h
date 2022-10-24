@@ -6,13 +6,7 @@ using namespace std;
 #ifndef RECTANGLE_H
 #define RECTANGLE_H
 
-class rectangle : Shape{
-private:
-    /* data */
-public:
-    rectangle(/* args */);
-    ~rectangle();
+class Rectangle : public Shape{
 };
-
 
 #endif // RECTANGLE_H

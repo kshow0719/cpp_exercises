@@ -9,21 +9,22 @@ using namespace std;
 class Rectangle : public Shape{
 public:
     // コンストラクタ
-    Rectangle(Point left_corner, float width, float hight){
-        this->left_center = left_corner;
-        this->width = width;
-        this->height = hight;
-    }
+    Rectangle(Point left_corner, float width, float hight);
+
+    // コピーコンストラクタ
+    Rectangle(const Rectangle& Rec_cp);
+    // コピーの代入演算子
+    Rectangle& operator=(const Rectangle& Rec_cp);
 
     // 継承メソッド
-    virtual string get_name();
-    virtual float compute_area();
-    virtual Rectangle* create();
-    virtual Rectangle* clone();
-    virtual ~Rectangle(){};
+    string get_name() override;
+    float compute_area() override;
+    Rectangle* create() override;
+    Rectangle* clone() override;
+    ~Rectangle() override;
 
 private:
-    Point left_center;
+    Point left_corner;
     float width;
     float height;
 };

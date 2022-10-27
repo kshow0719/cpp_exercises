@@ -9,17 +9,14 @@ using namespace std;
 class Disk : public Shape{
     public:
     // コンストラクタ
-    Disk(Point center, float radius){
-        this->center = center;
-        this->radius = radius;
-    }
+    Disk(Point center, float radius);
 
     // 継承メソッド
-    virtual string get_name();
-    virtual float compute_area();
-    virtual Disk* create();
-    virtual Disk* clone();
-    virtual ~Disk(){};
+    string get_name() override;
+    float compute_area() override;
+    Disk* create() override;
+    Disk* clone() override;
+    ~Disk() override;
 
 private:
     Point center;

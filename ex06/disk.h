@@ -10,6 +10,10 @@ class Disk : public Shape{
     public:
     // コンストラクタ
     Disk(Point center, float radius);
+    // コピーコンストラクタ
+    Disk(const Disk& Disk_cp);
+    // コピーの代入演算子
+    Disk& operator=(const Disk& Disk_cp);
 
     // 継承メソッド
     string get_name() override;

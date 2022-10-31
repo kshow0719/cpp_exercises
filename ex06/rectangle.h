@@ -10,7 +10,6 @@ class Rectangle : public Shape{
 public:
     // コンストラクタ
     Rectangle(Point left_corner, float width, float hight);
-
     // コピーコンストラクタ
     Rectangle(const Rectangle& Rec_cp);
     // コピーの代入演算子

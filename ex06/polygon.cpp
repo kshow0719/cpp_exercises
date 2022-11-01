@@ -12,7 +12,7 @@ Polygon::Polygon(){
 
 // コンストラクタ引数あり
 Polygon::Polygon(int vertex_num, Point Vertex[]){
-    this->num_of_vertex = vertex_num;
+    this->vertex_num = vertex_num;
     this->vertex = new Point[this->vertex_num];
     for(int i = 0; i < this-> vertex_num; i++){
         this->vertex[i].x = Vertex[i].x;
@@ -45,11 +45,11 @@ Polygon& Polygon::operator=(const Polygon& polygon_cp){
     return *this;
 }
 
-string Polygon::get_name(){
-    return "polygon";
+string Polygon::get_name() const{
+    return "Polygon";
 }
 
-float Polygon::compute_area(){
+float Polygon::compute_area() const{
     float result = 0, temp;
     for(int i = 0; i < this->vertex_num; i++){
         temp = (((this->vertex[i].x)*(this->vertex[(i+1) % vertex_num].y)) - ((vertex[i].y)*(vertex[(i+1) % vertex_num].x)));
@@ -59,12 +59,12 @@ float Polygon::compute_area(){
     return result;
 }
 
-Polygon* Polygon::create(){
+Polygon* Polygon::create() const{
     Polygon *Pol_new = new Polygon();
     return Pol_new;
 }
 
-Polygon* Polygon::clone(){
+Polygon* Polygon::clone() const{
     Polygon *Pol_clo = new Polygon(*this);
     return Pol_clo;
 }

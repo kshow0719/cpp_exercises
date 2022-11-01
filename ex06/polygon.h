@@ -27,6 +27,6 @@ public:
 private:
     int vertex_num;
     Point *vertex;
-}
+};
 
 #endif // POLYGON_H

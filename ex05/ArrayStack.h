@@ -75,17 +75,22 @@ public:
         // 参照を断ち切る
         array._num_items = 0;
         array._allocated_size = 0;
-        array._items = 0;
+        array._items = nullptr;
     }
 
     // Q3 移動の代入演算子
-    ArrayStack& operator=(const ArrayStack&& array){
+    ArrayStack& operator=(ArrayStack&& array){
         // 自身の代入チェック
         if (this != &array){
+            delete [] _items;
             this->_num_items = array._num_items;
             this->_allocated_size = array._allocated_size;
             this->_items = array._items;
         }
+        // 参照を断ち切る
+        array._num_items = 0;
+        array._allocated_size = 0;
+        array._items = nullptr;
         return *this;
     }
 

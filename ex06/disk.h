@@ -16,10 +16,10 @@ class Disk : public Shape{
     Disk& operator=(const Disk& Disk_cp);
 
     // 継承メソッド
-    string get_name() override;
-    float compute_area() override;
-    Disk* create() override;
-    Disk* clone() override;
+    string get_name() const override;
+    float compute_area() const override;
+    Disk* create() const override;
+    Disk* clone() const override;
     ~Disk() override;
 
 private:

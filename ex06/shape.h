@@ -12,10 +12,10 @@ struct Point {
 
 class Shape{
 public:
-    virtual string get_name() = 0;
-    virtual float compute_area() = 0;
-    virtual Shape* create() = 0;
-    virtual Shape* clone() = 0;
+    virtual string get_name() const = 0;
+    virtual float compute_area() const = 0;
+    virtual Shape* create() const = 0;
+    virtual Shape* clone() const = 0;
     virtual ~Shape(){};
 
 private:

@@ -54,6 +54,7 @@ public:
     ArrayStack& operator=(const ArrayStack& array){
         // 自身の代入チェック
         if (this != &array){
+            delete [] _items;
             this->_num_items = array._num_items;
             this->_allocated_size = array._allocated_size;
             this->_items = new string[array._allocated_size];

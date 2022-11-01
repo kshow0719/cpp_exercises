@@ -8,7 +8,9 @@ using namespace std;
 
 class Disk : public Shape{
     public:
-    // コンストラクタ
+    // コンストラクタ引数なし
+    Disk();
+    // コンストラクタ引数あり
     Disk(Point center, float radius);
     // コピーコンストラクタ
     Disk(const Disk& Disk_cp);

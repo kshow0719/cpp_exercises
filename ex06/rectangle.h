@@ -8,8 +8,10 @@ using namespace std;
 
 class Rectangle : public Shape{
 public:
-    // コンストラクタ
-    Rectangle(Point left_corner, float width, float hight);
+    // コンストラクタ引数なし
+    Rectangle();
+    // コンストラクタ引数あり
+    explicit Rectangle(Point left_corner, float width, float hight);
     // コピーコンストラクタ
     Rectangle(const Rectangle& Rec_cp);
     // コピーの代入演算子

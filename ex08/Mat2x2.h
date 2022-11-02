@@ -32,7 +32,7 @@ public:
 
     bool operator== (const Mat2x2& other);
 
-    ostream& operator<< (std::ostream &out, const Mat2x2& other);
+    ostream& operator<< (std::ostream& out, const Mat2x2& other);
 
     // デストラクタ
     ~Mat2x2();

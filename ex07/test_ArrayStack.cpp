@@ -77,5 +77,12 @@ int main(void) {
     // stack6のトップを確認、Q2におけるstack2と同じ内容になるはず
     cout << "Stack6: " << stack6.top() << endl;
 
+
+    // ******************************* ex07 *****************************************
+    cout << "------------ ex07 ------------" << endl;
+    ArrayStack stack_ex7;
+    stack_ex7.pop();
+    stack_ex7.top();
+
     return 0;
 }

@@ -112,13 +112,29 @@ public:
 
     // Pop an item 
     void pop() {
-        _num_items--;
-        if (_num_items > 0 && _num_items == _allocated_size/4) resize(_allocated_size/2);
+        try{
+            if(empty()){
+                throw std::out_of_range("Stack is empty.");
+            }
+            _num_items--;
+            if (_num_items > 0 && _num_items == _allocated_size/4) resize(_allocated_size/2);
+        }
+        catch(const std::out_of_range& e){
+            cerr << e.what() << endl;
+        }
     }
 
     // Access the top-most item 
     std::string top() {
-        return _items[_num_items-1];
+        try{
+            if(empty()){
+                throw std::out_of_range("Stack is empty.");
+            }
+            return _items[_num_items-1];
+        }
+        catch(const std::out_of_range& e){
+            std::cerr << e.what() << endl;
+        }
     }
 
     // Check if the stack is empty 

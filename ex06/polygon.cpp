@@ -70,4 +70,5 @@ Polygon* Polygon::clone() const{
 }
 
 Polygon::~Polygon(){
+    delete [] this;
 }

@@ -7,14 +7,16 @@ using namespace std;
 
 class Mat2x2{
 private:
-    /* data */
+    // ２次元行列の生成
+    float **mat = new float*[2];
+    
 public:
     // コンストラクタ引数なし
     // 単位行列の作成
     Mat2x2();
     // コンストラクタ引数あり
     // 2x2の行列の作成
-    explicit Mat2x2(float[]);
+    explicit Mat2x2(float []);
 
     // overloadメソッド
     Mat2x2& operator+ (const Mat2x2& other);
@@ -32,7 +34,7 @@ public:
 
     bool operator== (const Mat2x2& other);
 
-    ostream& operator<< (std::ostream& out, const Mat2x2& other);
+    ostream& operator<< (ostream& out);
 
     // デストラクタ
     ~Mat2x2();

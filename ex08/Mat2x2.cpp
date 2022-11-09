@@ -115,13 +115,38 @@ Mat2x2& Mat2x2::operator-(){
     return *answer;
 }
 
-float Mat2x2::operator()(){}
+float Mat2x2::operator()(int i, int j){
+    // 要素を返す
+    return this->mat[i][j];
+}
 
-bool Mat2x2::operator==(){}
+bool Mat2x2::operator==(const Mat2x2& other){
+    // 行列の等価判定
+    int TF_count = 0;
+    for(int i = 0; i < 2; i++){
+        for(int j = 0; j < 2; j++){
+            if(this->mat[i][j] == other.mat[i][j]){
+                TF_count++;
+            }
+        }
+    }
+    if(TF_count == 4){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
 
-ostream& Mat2x2::operator<<(){}
-
-Mat2x2::operator-(){}
+ostream& operator<<(ostream& out, const Mat2x2& other){
+    for(int i = 0; i < 2; i++){
+        for (int j = 0; j < 2; j++){
+            out << other.mat[i][j] << " ";
+        }
+        out << "\n";
+    }
+    return out;
+}
 
 // デストラクタ
 Mat2x2::~Mat2x2(){

@@ -34,7 +34,7 @@ public:
 
     bool operator== (const Mat2x2& other);
 
-    ostream& operator<< (ostream& out);
+    friend ostream& operator<< (ostream& out, const Mat2x2& other);
 
     // デストラクタ
     ~Mat2x2();

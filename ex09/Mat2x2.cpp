@@ -6,8 +6,8 @@ using namespace std;
 
 // コンストラクタ引数なし
 // 単位行列の作成
-template <typename T, typename N>
-Mat2x2::Mat2x2(){
+template<typename T, int N>
+Mat2x2<T, N>::Mat2x2(){
     // 行列の生成
     for (int i = 0; i < N; i++){
         mat[i] = new T[N]; 
@@ -16,10 +16,10 @@ Mat2x2::Mat2x2(){
     for (int i = 0; i < N; i++){
         for (int j = 0; j < N; j++){
             if (i == j){
-                mat[i][j] = 1;
+                this->mat[i][j] = 1;
             }
             else{
-                mat[i][j] = 0;
+                this->mat[i][j] = 0;
             }
         }
     }
@@ -27,24 +27,29 @@ Mat2x2::Mat2x2(){
 
 // コンストラクタ引数あり
 // NxNの行列の作成
-template <typename T, typename N>
-Mat2x2::Mat2x2(T in[]){
+template <typename T, int N>
+Mat2x2<T, N>::Mat2x2(T in[]){
     // 行列の生成
     for (int i = 0; i < N; i++){
         mat[i] = new T[N]; 
     }
-    // 要素の挿入??
-    mat[0][0] = in[0];
-    mat[1][0] = in[1];
-    mat[0][1] = in[2];
-    mat[1][1] = in[3];
+    // 要素の挿入
+    int k = 0;
+    for(int i = 0; i < N; i++){
+        for(int j = 0; j < N; j++){
+            this->mat[i][j] = in[k];
+            k += N;
+        }
+        k = 0;
+        k = i+1;
+    }
 }
 
 // overloadメソッド
-template <typename N>
-Mat2x2& Mat2x2::operator+(const Mat2x2& other){
+template<typename T, int N>
+Mat2x2<T, N>& Mat2x2<T, N>::operator+(const Mat2x2<T, N>& other){
     // 答えを格納する行列
-    Mat2x2 *answer = new Mat2x2();
+    Mat2x2 *answer = new Mat2x2<T, N>();
     // 足し算
     for (int i = 0; i < N; i++){
         for (int j = 0; j < N; j++){
@@ -54,10 +59,10 @@ Mat2x2& Mat2x2::operator+(const Mat2x2& other){
     return *answer;
 }
 
-template <typename N>
-Mat2x2& Mat2x2::operator-(const Mat2x2& other){
+template<typename T, int N>
+Mat2x2<T, N>& Mat2x2<T, N>::operator-(const Mat2x2<T, N>& other){
     // 答えを格納する行列
-    Mat2x2 *answer = new Mat2x2();
+    Mat2x2 *answer = new Mat2x2<T, N>();
     // 引き算
     for (int i = 0; i < N; i++){
         for (int j = 0; j < N; j++){
@@ -67,10 +72,10 @@ Mat2x2& Mat2x2::operator-(const Mat2x2& other){
     return *answer;
 }
 
-template <typename N>
-Mat2x2& Mat2x2::operator*(const Mat2x2& other){
+template<typename T, int N>
+Mat2x2<T, N>& Mat2x2<T, N>::operator*(const Mat2x2<T, N>& other){
     // 答えを格納する行列
-    Mat2x2 *answer = new Mat2x2();
+    Mat2x2 *answer = new Mat2x2<T, N>();
     // 掛け算
     for (int i = 0; i < N; i++){
         for (int j = 0; j < N; j++){
@@ -80,8 +85,8 @@ Mat2x2& Mat2x2::operator*(const Mat2x2& other){
     return *answer;
 }
 
-template <typename N>
-Mat2x2& Mat2x2::operator+=(const Mat2x2& other){
+template<typename T, int N>
+Mat2x2<T, N>& Mat2x2<T, N>::operator+=(const Mat2x2<T, N>& other){
     // A = A + B
     for (int i = 0; i < N; i++){
         for (int j = 0; j < N; j++){
@@ -91,8 +96,8 @@ Mat2x2& Mat2x2::operator+=(const Mat2x2& other){
     return *this;
 }
 
-template <typename N>
-Mat2x2& Mat2x2::operator-=(const Mat2x2& other){
+template<typename T, int N>
+Mat2x2<T, N>& Mat2x2<T, N>::operator-=(const Mat2x2<T, N>& other){
     // A = A - B
     for (int i = 0; i < N; i++){
         for (int j = 0; j < N; j++){
@@ -102,8 +107,8 @@ Mat2x2& Mat2x2::operator-=(const Mat2x2& other){
     return *this;
 }
 
-template <typename N>
-Mat2x2& Mat2x2::operator*=(const Mat2x2& other){
+template<typename T, int N>
+Mat2x2<T, N>& Mat2x2<T, N>::operator*=(const Mat2x2<T, N>& other){
     // A = A * B
     for (int i = 0; i < N; i++){
         for (int j = 0; j < N; j++){
@@ -113,10 +118,10 @@ Mat2x2& Mat2x2::operator*=(const Mat2x2& other){
     return *this;
 }
 
-template <typename N>
-Mat2x2& Mat2x2::operator-(){
+template<typename T, int N>
+Mat2x2<T, N>& Mat2x2<T, N>::operator-(){
     // 答えを格納する行列
-    Mat2x2 *answer = new Mat2x2();
+    Mat2x2 *answer = new Mat2x2<T, N>();
     // B = -A
     for (int i = 0; i < N; i++){
         for (int j = 0; j < N; j++){
@@ -126,14 +131,14 @@ Mat2x2& Mat2x2::operator-(){
     return *answer;
 }
 
-template <typename T>
-T Mat2x2::operator()(int i, int j){
+template<typename T, int N>
+T Mat2x2<T, N>::operator()(int i, int j){
     // 要素を返す
     return this->mat[i][j];
 }
 
-template <typename N>
-bool Mat2x2::operator==(const Mat2x2& other){
+template<typename T, int N>
+bool Mat2x2<T, N>::operator==(const Mat2x2<T, N>& other){
     // 行列の等価判定
     int TF_count = 0;
     for(int i = 0; i < N; i++){
@@ -151,7 +156,7 @@ bool Mat2x2::operator==(const Mat2x2& other){
     }
 }
 
-template <typename N>
+template<typename T, int N>
 ostream& operator<<(ostream& out, const Mat2x2& other){
     for(int i = 0; i < N; i++){
         for (int j = 0; j < N; j++){

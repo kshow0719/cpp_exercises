@@ -5,13 +5,15 @@ using namespace std;
 #ifndef MAT2x2_H
 #define MAT2x2_H
 
-template <typename T, typename N>
+template <typename T, int N>
 class Mat2x2{
 private:
     // N次元行列の生成
-    float **mat = new T*[N];
+    // T **mat = new T*[N];
     
 public:
+    // N次元行列の生成
+    T **mat = new T*[N];
     // コンストラクタ引数なし
     // 単位行列の作成
     Mat2x2();
@@ -35,7 +37,7 @@ public:
 
     bool operator== (const Mat2x2& other);
 
-    friend ostream& operator<< (ostream& out, const Mat2x2& other);
+    friend ostream& operator<< (ostream& out, const Mat2x2<T, N>& other);
 
     // デストラクタ
     ~Mat2x2();

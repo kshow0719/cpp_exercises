@@ -8,9 +8,9 @@ int main(void){
     // ex9 テスト
     cout << "---------------- Test for int Mat3x3 ----------------" << endl;
     
-    // 行列の要素を格納するfloat[]
-    int in1[] = {3, 4, 5};
-    int in2[] = {1, 3, 6};
+    // 行列の要素を格納するint[]
+    int in1[] = {3, 4, 5, 2, 2, 3, 5, 6, 10};
+    int in2[] = {1, 3, 6, 12, 2, 34, 5, 1, 11};
 
     // 単位行列の生成
     Mat2x2<int, 3> mat0 = Mat2x2<int, 3>();
@@ -29,32 +29,31 @@ int main(void){
     // overloadメソッド テスト
     // 加算
     mat_result_i = mat1 + mat2;
-    cout << " mat_add =\n" << mat_result_i<int, 3>;
+    cout << " mat_add =\n" << mat_result_i;
 
     // 減算
     mat_result_i = mat1 - mat2;
-    cout << " mat_sub =\n" << mat_result_i<int, 3>;
+    cout << " mat_sub =\n" << mat_result_i;
 
     // 乗算
     mat_result_i = mat1 * mat2;
-    cout << " mat_mult =\n" << mat_result_i<int, 3>;
+    cout << " mat_mult =\n" << mat_result_i;
 
     // 複合加算
     mat_result_i = mat1 += mat2;
-    cout << " mat_compound_add =\n" << mat_result_i<int, 3>;
+    cout << " mat_compound_add =\n" << mat_result_i;
 
     // 複合減算
     mat_result_i = mat1 -= mat2;
-    cout << " mat_compound_sub =\n" << mat_result_i<int, 3>;
+    cout << " mat_compound_sub =\n" << mat_result_i;
 
     // 複合乗算
     mat_result_i = mat1 *= mat2;
-    cout << " mat_compound_mult =\n" << mat_result_i<int, 3>;
+    cout << " mat_compound_mult =\n" << mat_result_i;
 
     // 単項マイナス
     mat_result_i = -mat1;
-    cout << " mat_compound_mult =\n" << mat_result_i<int, 3>;
-    cout << " mat_unary_minus =\n" << mat_result_i<int, 3>;
+    cout << " mat_unary_minus =\n" << mat_result_i;
 
     // 要素の取得
     result_i = mat1(0, 0);
@@ -70,20 +69,20 @@ int main(void){
 
 
     // ex9 テスト
-    cout << "---------------- Test for doublle Mat5x5 ----------------" << endl;
+    cout << "---------------- Test for doublle Mat2x2 ----------------" << endl;
     
     // 行列の要素を格納するdouble[]
-    double in3[] = {3.0, 4.2, 5.0, 8.3, 1.6};
-    double in4[] = {1.1, 3.0, 6.5, 10.2, 2.7};
+    double in3[] = {3.0, 4.2, 5.0, 8.3};
+    double in4[] = {1.1, 3.0, 6.5, 10.2};
 
     // 各演算の結果を格納する
-    Mat2x2<double, 5> mat_result_d = Mat2x2<double, 5>();
+    Mat2x2<double, 2> mat_result_d = Mat2x2<double, 2>();
     double result_d;
 
     // 5x5行列の作成
-    Mat2x2<double, 5> mat3 = Mat2x2<double, 5>(in3);
+    Mat2x2<double, 2> mat3 = Mat2x2<double, 2>(in3);
     cout << " mat1 =\n" << mat3;
-    Mat2x2<double, 5> mat4 = Mat2x2<double, 5>(in4);
+    Mat2x2<double, 2> mat4 = Mat2x2<double, 2>(in4);
     cout << " mat2 =\n" << mat4;
 
     // overloadメソッド テスト
@@ -117,7 +116,7 @@ int main(void){
 
     // 要素の取得
     result_d = mat3(0, 0);
-    cout << " mat1[0][0] = \n" << result_d << endl;
+    cout << " mat3[0][0] = \n" << result_d << endl;
 
     // 等価判定
     if(mat3 == mat4){

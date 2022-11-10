@@ -156,8 +156,18 @@ bool Mat2x2<T, N>::operator==(const Mat2x2<T, N>& other){
     }
 }
 
+// デストラクタ
 template<typename T, int N>
-ostream& operator<<(ostream& out, const Mat2x2& other){
+Mat2x2<T, N>::~Mat2x2(){
+}
+
+template class Mat2x2<int, 3>;
+template std::ostream& operator<<(std::ostream& out, const Mat2x2<int, 3>& other);
+template class Mat2x2<double, 2>;
+template std::ostream& operator<<(std::ostream& out, const Mat2x2<double ,2>& other);
+
+template<typename T, int N>
+ostream& operator<<(ostream& out, const Mat2x2<T, N>& other){
     for(int i = 0; i < N; i++){
         for (int j = 0; j < N; j++){
             out << other.mat[i][j] << " ";
@@ -165,8 +175,4 @@ ostream& operator<<(ostream& out, const Mat2x2& other){
         out << "\n";
     }
     return out;
-}
-
-// デストラクタ
-Mat2x2::~Mat2x2(){
 }

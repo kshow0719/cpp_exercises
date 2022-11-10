@@ -37,10 +37,11 @@ public:
 
     bool operator== (const Mat2x2& other);
 
-    friend ostream& operator<< (ostream& out, const Mat2x2<T, N>& other);
-
     // デストラクタ
     ~Mat2x2();
 };
+
+    template<typename T, int N>
+    ostream& operator<< (ostream& out, const Mat2x2<T, N>& other);
 
 #endif // MAT2x2_H

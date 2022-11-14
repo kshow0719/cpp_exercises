@@ -7,15 +7,19 @@ using namespace std;
 // sort
 template <class BiDirIt>
 void PL4::sort(BiDirIt begin, BiDirIt end){
-    for (BiDirIt i = begin; i < end; i++){
-        BiDirIt num = i;
-        BiDirIt j = i--;
-
-        while ((j >= begin && (j > num))){
-            j++ = j;
+    begin++;
+    for(BiDirIt i = begin; i != end; i++){
+        auto k = *i;
+        BiDirIt temp_i = i;
+        BiDirIt j = --temp_i;
+        while ((j != begin) && (*j > k)){
+            BiDirIt temp_j = j;
+            temp_j++;
+            *temp_j = *j;
             j--;
         }
-        j = num;
+        j++;
+        *j = k;
     }
 }
 
@@ -30,7 +34,7 @@ void printList(const list<T>& list) {
 
 int main(){
     list<int> list1 = { 23, 1, 12, 4, 59, 3, 21, 6};
-    list<double> list2 = { 2.1, 6.0, 12.5, 6.0, 12.0, 3.3, 23.8, 1.0};
+    list<double> list2 = { 2.1, 6.0, 12.5, 7.0, 12.0, 3.3, 23.8, 1.0};
 
     // sort前のlist表示
     cout << "-------------- List before sort --------------" << endl;
@@ -38,8 +42,8 @@ int main(){
     printList(list2);
 
     // sort
-    // PL4::sort(list1.begin(), list1.end());
-    // PL4::sort(list2.begin(), list2.end());
+    PL4::sort(list1.begin(), list1.end());
+    PL4::sort(list2.begin(), list2.end());
 
     // sort後のlist表示
     cout << "-------------- List after sort ---------------" << endl;

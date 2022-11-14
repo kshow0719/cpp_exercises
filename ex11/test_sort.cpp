@@ -1,5 +1,5 @@
 #include <algorithm>
-#include <vector>
+#include <list>
 #include <iomanip>
 #include "sort.h"
 using namespace std;
@@ -18,32 +18,32 @@ void PL4::sort(BiDirIt begin, BiDirIt end){
     }
 }
 
-// vector 表示用関数
+// List 表示用関数
 template<typename T>
-void printVector(const vector<T>& vec) {
-    for (auto& i : vec) {
+void printList(const list<T>& list) {
+    for (auto& i : list) {
         cout << i << " ";
     }
     cout << endl;
 }
 
 int main(){
-    vector<int> vec1 = { 23, 1, 12, 4, 59, 3, 21, 6};
-    vector<double> vec2 = { 2.1, 6.0, 12.5, 6.0, 12.0, 3.3, 23.8, 1.0};
+    list<int> list1 = { 23, 1, 12, 4, 59, 3, 21, 6};
+    list<double> list2 = { 2.1, 6.0, 12.5, 6.0, 12.0, 3.3, 23.8, 1.0};
 
-    // sort前のvector表示
-    cout << "-------------- Vector before sort --------------" << endl;
-    printVector(vec1);
-    printVector(vec2);
+    // sort前のlist表示
+    cout << "-------------- List before sort --------------" << endl;
+    printList(list1);
+    printList(list2);
 
     // sort
-    PL4::sort(vec1.begin(), vec1.end());
-    PL4::sort(vec2.begin(), vec2.end());
+    // PL4::sort(list1.begin(), list1.end());
+    // PL4::sort(list2.begin(), list2.end());
 
-    // sort後のvector表示
-    cout << "-------------- Vector after sort ---------------" << endl;
-    printVector(vec1);
-    printVector(vec2);
+    // sort後のlist表示
+    cout << "-------------- List after sort ---------------" << endl;
+    printList(list1);
+    printList(list2);
 
     return 0;
 }

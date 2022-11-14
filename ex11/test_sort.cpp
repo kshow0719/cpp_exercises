@@ -12,9 +12,7 @@ void PL4::sort(BiDirIt begin, BiDirIt end){
         auto k = *i;
         BiDirIt temp_i = i;
         BiDirIt j = --temp_i;
-        BiDirIt temp_begin = begin;
-        temp_begin--;
-        while ((j != temp_begin) && (*j > k)){
+        while ((j != end) && (*j > k)){
             BiDirIt temp_j = j;
             temp_j++;
             *temp_j = *j;

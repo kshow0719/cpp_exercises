@@ -4,6 +4,7 @@
 #include "sort.h"
 using namespace std;
 
+// sort
 template <class BiDirIt>
 void PL4::sort(BiDirIt begin, BiDirIt end){
     for (BiDirIt i = begin; i < end; i++){
@@ -18,7 +19,7 @@ void PL4::sort(BiDirIt begin, BiDirIt end){
     }
 }
 
-// List 表示用関数
+// list 表示用関数
 template<typename T>
 void printList(const list<T>& list) {
     for (auto& i : list) {

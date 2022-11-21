@@ -1,6 +1,7 @@
 #include <cmath>
 #include <vector>
 #include <queue>
+using namespace std;
 
 #ifndef FIND_H
 #define FIND_H
@@ -13,16 +14,33 @@ struct Point {
 };
 
 // Compare関数オブジェクト
-class Compere
-{
+class Compare{
 private:
     /* data */
 public:
-    Compere();
-    ~Compere();
+    bool operator ()(const Point& first, const Point& second){
+        auto first_to_origin = sqrt(pow(first.x, 2) + pow(first.y, 2) + pow(first.z, 2));
+        auto second_to_origin = sqrt(pow(second.x, 2) + pow(second.y, 2) + pow(second.z, 2));
+
+        return first_to_origin < second_to_origin;
+    }
 };
 
 /// 関数 find_k_closest()
-void find_k_closest(){}
+vector <Point> find_k_closest(vector <Point> P, int k){
+    priority_queue<double, vector<Point>, decltype(Compare())> queue{Compare()};
+
+    for (int i = P.size()-1; i >= 0; i--){
+        queue.push(P[i]);
+    }
+
+    vector<Point> result;
+    for (int i = 0; i < k; i++) {
+        result.push_back(queue.top());
+        queue.pop();
+    }
+
+    return result;
+}
 
 #endif // FIND_H

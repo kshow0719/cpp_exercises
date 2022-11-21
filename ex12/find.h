@@ -22,20 +22,6 @@ public:
 };
 
 /// 関数 find_k_closest()
-vector <Point> find_k_closest(vector <Point> P, int k){
-    priority_queue<double, vector<Point>, decltype(Compare())> queue{Compare()};
-
-    for (int i = P.size()-1; i >= 0; i--){
-        queue.push(P[i]);
-    }
-
-    vector<Point> result;
-    for (int i = 0; i < k; i++) {
-        result.push_back(queue.top());
-        queue.pop();
-    }
-
-    return result;
-}
+vector <Point> find_k_closest(vector <Point> P, int k);
 
 #endif // FIND_H

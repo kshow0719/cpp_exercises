@@ -4,7 +4,7 @@
 #include <vector>
 using namespace std;
 
-void compute_median(vector<double>& array){
+void compute_median(vector<float>& array){
 
     // begin, endの取得
     auto ar_begin = begin(array);
@@ -43,8 +43,8 @@ void compute_median(vector<double>& array){
 }
 
 int main(void) {
-    vector<double> vec1 = {55.3, 28.2, -2, 18, 36.2, 4.2, 3.2, -42, -1.3};
-    vector<double> vec2 = {3, 5.2, 6.9, 10, -1, 4.2, 8, 100};
+    vector<float> vec1 = {55.3, 28.2, -2, 18, 36.2, 4.2, 3.2, -42, -1.3};
+    vector<float> vec2 = {3, 5.2, 6.9, 10, -1, 4.2, 8, 100};
 
     // test for array1
     cout << "Before array1: " << endl;

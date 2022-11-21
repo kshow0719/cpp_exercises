@@ -4,8 +4,8 @@
 #include <vector>
 using namespace std;
 
+// Q1
 void compute_median(vector<float>& array){
-
     // begin, endの取得
     auto ar_begin = begin(array);
     auto ar_end = end(array);
@@ -46,6 +46,7 @@ int main(void) {
     vector<float> vec1 = {55.3, 28.2, -2, 18, 36.2, 4.2, 3.2, -42, -1.3};
     vector<float> vec2 = {3, 5.2, 6.9, 10, -1, 4.2, 8, 100};
 
+    cout << "------------------ Q1 ------------------" << endl;
     // test for array1
     cout << "Before array1: " << endl;
     for (auto value : vec1) {
@@ -63,6 +64,9 @@ int main(void) {
     cout << endl;
 
     compute_median(vec2);
+
+
+    cout << "------------------ Q2 ------------------" << endl;
 
     return 0;
 }

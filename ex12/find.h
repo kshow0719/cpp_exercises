@@ -24,4 +24,7 @@ public:
 /// 関数 find_k_closest()
 vector <Point> find_k_closest(vector <Point> P, int k);
 
+// 関数 find_k_closest_lambda()
+vector <Point> find_k_closest_lambda(vector <Point> P, int k);
+
 #endif // FIND_H

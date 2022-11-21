@@ -42,6 +42,11 @@ void compute_median(vector<float>& array){
     cout << "Median: " << median << endl;
 }
 
+// Q2
+vector<float> compute_k_closest(vector<float>& array, int k){
+    
+}
+
 int main(void) {
     vector<float> vec1 = {55.3, 28.2, -2, 18, 36.2, 4.2, 3.2, -42, -1.3};
     vector<float> vec2 = {3, 5.2, 6.9, 10, -1, 4.2, 8, 100};
@@ -67,6 +72,7 @@ int main(void) {
 
 
     cout << "------------------ Q2 ------------------" << endl;
+
 
     return 0;
 }

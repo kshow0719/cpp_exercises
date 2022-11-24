@@ -30,7 +30,10 @@ public:
 
     Mat2x2& operator- ();
 
-    float operator() (int i, int j);
+    // float operator() (int i, int j);
+    // 追加
+    float& operator()(int i, int j);
+    const float& operator()(int i, int j) const;
 
     bool operator== (const Mat2x2& other);
 

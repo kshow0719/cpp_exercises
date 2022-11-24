@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <iostream>
 #include <string>
+#include <math.h>
 #include "Mat2x2.h"
 using namespace std;
 
@@ -66,9 +67,11 @@ Mat2x2& Mat2x2::operator*(const Mat2x2& other){
     // 答えを格納する行列
     Mat2x2 *answer = new Mat2x2();
     // 掛け算
-    for (int i = 0; i < 2; i++){
-        for (int j = 0; j < 2; j++){
-            answer->mat[i][j] = this->mat[i][j] * other.mat[i][j];
+    for(int i = 0; i < 2; i++){
+        for(int j = 0; j < 2; j++){
+            for(int k = 0; k < 2; k++){
+                answer->mat[i][j] += this->mat[i][k] * other.mat[k][j];
+            }
         }
     }
     return *answer;
@@ -95,9 +98,11 @@ Mat2x2& Mat2x2::operator-=(const Mat2x2& other){
 }
 Mat2x2& Mat2x2::operator*=(const Mat2x2& other){
     // A = A * B
-    for (int i = 0; i < 2; i++){
-        for (int j = 0; j < 2; j++){
-            this->mat[i][j] = this->mat[i][j] * other.mat[i][j];
+    for(int i = 0; i < 2; i++){
+        for(int j = 0; j < 2; j++){
+            for(int k = 0; k < 2; k++){
+                this->mat[i][j] += this->mat[i][k] * other.mat[k][j];
+            }
         }
     }
     return *this;
@@ -115,7 +120,7 @@ Mat2x2& Mat2x2::operator-(){
     return *answer;
 }
 
-float Mat2x2::operator()(int i, int j){
+float& Mat2x2::operator()(int i, int j){
     // 要素を返す
     return this->mat[i][j];
 }
@@ -125,7 +130,7 @@ bool Mat2x2::operator==(const Mat2x2& other){
     int TF_count = 0;
     for(int i = 0; i < 2; i++){
         for(int j = 0; j < 2; j++){
-            if(this->mat[i][j] == other.mat[i][j]){
+            if(fabs(this->mat[i][j] - other.mat[i][j]) < 1e-5){
                 TF_count++;
             }
         }
@@ -150,4 +155,8 @@ ostream& operator<<(ostream& out, const Mat2x2& other){
 
 // デストラクタ
 Mat2x2::~Mat2x2(){
+    for(int i = 0; i < 2; i++){
+        delete[] mat[i];
+    }
+    delete mat;
 }

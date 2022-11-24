@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <iostream>
 #include <string>
-#include "Mat2x2.h"
+#include "MatNxN.h"
 using namespace std;
 
 int main(void){
@@ -20,7 +20,7 @@ int main(void){
     MatNxN<int, 3> mat_result_i = MatNxN<int, 3>();
     int result_i;
 
-    // 2x2行列の作成
+    // NxN行列の作成
     MatNxN<int, 3> mat1 = MatNxN<int, 3>(in1);
     cout << " mat1 =\n" << mat1;
     MatNxN<int, 3> mat2 = MatNxN<int, 3>(in2);
@@ -79,7 +79,7 @@ int main(void){
     MatNxN<double, 2> mat_result_d = MatNxN<double, 2>();
     double result_d;
 
-    // 5x5行列の作成
+    // NxN行列の作成
     MatNxN<double, 2> mat3 = MatNxN<double, 2>(in3);
     cout << " mat1 =\n" << mat3;
     MatNxN<double, 2> mat4 = MatNxN<double, 2>(in4);

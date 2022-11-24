@@ -82,7 +82,12 @@ int main(void) {
     cout << "------------ ex07 ------------" << endl;
     ArrayStack stack_ex7;
     stack_ex7.pop();
-    stack_ex7.top();
+    try{
+        string st = stack_ex7.top();
+    }
+    catch(const runtime_error& e){
+        std::cerr << e.what() << endl;
+    }
 
     return 0;
 }

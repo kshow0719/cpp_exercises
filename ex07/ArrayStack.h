@@ -7,6 +7,16 @@ using namespace std;
 #ifndef ARRAY_STACK_H
 #define ARRAY_STACK_H
 
+class pop_exception:public runtime_error{
+public:
+    pop_exception() : runtime_error("Pop exception.") {};
+};
+
+class top_exception:public runtime_error{
+public:
+    top_exception() : runtime_error("Top exception.") {};
+};
+
 class ArrayStack {
 private:
     int _num_items; // number of items in the stack
@@ -114,28 +124,21 @@ public:
     void pop() {
         try{
             if(empty()){
-                throw std::out_of_range("Stack is empty.");
+                throw pop_exception();
             }
             _num_items--;
             if (_num_items > 0 && _num_items == _allocated_size/4) resize(_allocated_size/2);
         }
-        catch(const std::out_of_range& e){
+        catch(const runtime_error& e){
             cerr << e.what() << endl;
         }
     }
 
     // Access the top-most item 
     std::string top() {
-        try{
-            if(empty()){
-                throw std::out_of_range("Stack is empty.");
-            }
-            return _items[_num_items-1];
-        }
-        catch(const std::out_of_range& e){
-            std::cerr << e.what() << endl;
-        }
-    }
+        if(empty()) throw top_exception();
+        return _items[_num_items-1];
+    };
 
     // Check if the stack is empty 
     bool empty() const { return _num_items == 0; }

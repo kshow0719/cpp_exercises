@@ -13,17 +13,17 @@ int main(void){
     int in2[] = {1, 3, 6, 12, 2, 34, 5, 1, 11};
 
     // 単位行列の生成
-    Mat2x2<int, 3> mat0 = Mat2x2<int, 3>();
+    MatNxN<int, 3> mat0 = MatNxN<int, 3>();
     cout << " mat0 =\n" << mat0;
 
     // 各演算の結果を格納する
-    Mat2x2<int, 3> mat_result_i = Mat2x2<int, 3>();
+    MatNxN<int, 3> mat_result_i = MatNxN<int, 3>();
     int result_i;
 
     // 2x2行列の作成
-    Mat2x2<int, 3> mat1 = Mat2x2<int, 3>(in1);
+    MatNxN<int, 3> mat1 = MatNxN<int, 3>(in1);
     cout << " mat1 =\n" << mat1;
-    Mat2x2<int, 3> mat2 = Mat2x2<int, 3>(in2);
+    MatNxN<int, 3> mat2 = MatNxN<int, 3>(in2);
     cout << " mat2 =\n" << mat2;
 
     // overloadメソッド テスト
@@ -76,13 +76,13 @@ int main(void){
     double in4[] = {1.1, 3.0, 6.5, 10.2};
 
     // 各演算の結果を格納する
-    Mat2x2<double, 2> mat_result_d = Mat2x2<double, 2>();
+    MatNxN<double, 2> mat_result_d = MatNxN<double, 2>();
     double result_d;
 
     // 5x5行列の作成
-    Mat2x2<double, 2> mat3 = Mat2x2<double, 2>(in3);
+    MatNxN<double, 2> mat3 = MatNxN<double, 2>(in3);
     cout << " mat1 =\n" << mat3;
-    Mat2x2<double, 2> mat4 = Mat2x2<double, 2>(in4);
+    MatNxN<double, 2> mat4 = MatNxN<double, 2>(in4);
     cout << " mat2 =\n" << mat4;
 
     // overloadメソッド テスト

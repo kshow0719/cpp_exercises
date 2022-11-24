@@ -81,7 +81,9 @@ int main(void) {
     // ******************************* ex07 *****************************************
     cout << "------------ ex07 ------------" << endl;
     ArrayStack stack_ex7;
+    // popの例外テスト
     stack_ex7.pop();
+    // topの例外テスト
     try{
         string st = stack_ex7.top();
     }

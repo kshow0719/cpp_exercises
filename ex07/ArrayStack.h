@@ -7,11 +7,13 @@ using namespace std;
 #ifndef ARRAY_STACK_H
 #define ARRAY_STACK_H
 
+// popの例外処理
 class pop_exception:public runtime_error{
 public:
     pop_exception() : runtime_error("Pop exception.") {};
 };
 
+// topの例外処理
 class top_exception:public runtime_error{
 public:
     top_exception() : runtime_error("Top exception.") {};
